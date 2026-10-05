@@ -1,6 +1,7 @@
 import type { FireBoardDevice, FireBoardTemp } from '../types';
 
-const BASE_URL = "https://fireboard.io/api";
+// We use a relative path so Vite (locally) or Render (in production) can proxy the request to bypass CORS.
+const BASE_URL = "/api/fireboard";
 
 export class FireBoardService {
     
