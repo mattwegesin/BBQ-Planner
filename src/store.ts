@@ -78,6 +78,13 @@ interface AppState {
     deleteSession: (id: string) => void;
     loadSession: (session: BBQSession) => void;
     recalculatePlan: () => void;
+    // Settings Actions
+    updateMeat: (id: string, updates: Partial<MeatConfig>) => void;
+    addMeat: (category: 'Protein' | 'Side') => void;
+    deleteMeat: (id: string) => void;
+    updateMiscItem: (id: string, updates: Partial<MiscItem>) => void;
+    addMiscItem: () => void;
+    deleteMiscItem: (id: string) => void;
 }
 
 export const useStore = create<AppState>((set, get) => ({
@@ -167,6 +174,62 @@ export const useStore = create<AppState>((set, get) => ({
             activeSessionId: session.id
         });
         get().recalculatePlan();
+    },
+
+    updateMeat: (id, updates) => {
+        const { settings } = get();
+        const updatedMeats = settings.meats.map(m => m.id === id ? { ...m, ...updates } : m);
+        set({ settings: { ...settings, meats: updatedMeats } });
+        get().recalculatePlan();
+    },
+
+    addMeat: (category) => {
+        const { settings } = get();
+        const newMeat: MeatConfig = {
+            id: uuidv4(),
+            name: `New ${category}`,
+            category: category,
+            cookTimeHours: category === 'Protein' ? 5 : 0.5,
+            restTimeHours: category === 'Protein' ? 1 : 0,
+            wrapInstruction: "",
+            yieldType: category === 'Protein' ? 'Pounds per Person' : 'Units per Person',
+            amountPerPerson: category === 'Protein' ? 0.5 : 1.0,
+            shrinkagePercent: category === 'Protein' ? 20 : 0,
+            pricePerUnit: category === 'Protein' ? 5.0 : 2.0,
+            requiredIngredients: []
+        };
+        set({ settings: { ...settings, meats: [...settings.meats, newMeat] } });
+    },
+
+    deleteMeat: (id) => {
+        const { settings, selectedMeatIDs } = get();
+        const updatedMeats = settings.meats.filter(m => m.id !== id);
+        const newSelection = new Set(selectedMeatIDs);
+        newSelection.delete(id);
+        
+        set({ 
+            settings: { ...settings, meats: updatedMeats },
+            selectedMeatIDs: newSelection
+        });
+        get().recalculatePlan();
+    },
+
+    updateMiscItem: (id, updates) => {
+        const { settings } = get();
+        const updatedMisc = settings.miscItems.map(m => m.id === id ? { ...m, ...updates } : m);
+        set({ settings: { ...settings, miscItems: updatedMisc } });
+    },
+
+    addMiscItem: () => {
+        const { settings } = get();
+        const newItem = { id: uuidv4(), name: "New Misc Item", estimatedCost: 0.0 };
+        set({ settings: { ...settings, miscItems: [...settings.miscItems, newItem] } });
+    },
+
+    deleteMiscItem: (id) => {
+        const { settings } = get();
+        const updatedMisc = settings.miscItems.filter(m => m.id !== id);
+        set({ settings: { ...settings, miscItems: updatedMisc } });
     }
 }));
 

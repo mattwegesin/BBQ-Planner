@@ -5,9 +5,10 @@ import TimelineView from './components/TimelineView';
 import ShoppingListView from './components/ShoppingListView';
 import CostAnalysisView from './components/CostAnalysisView';
 import FireBoardView from './components/FireBoardView';
+import SettingsView from './components/SettingsView';
 
 function App() {
-  const [activeTab, setActiveTab] = useState<'timeline' | 'shopping' | 'cost' | 'fireboard'>('timeline');
+  const [activeTab, setActiveTab] = useState<'timeline' | 'shopping' | 'cost' | 'fireboard' | 'settings'>('timeline');
 
   return (
     <div className="app-container">
@@ -38,6 +39,12 @@ function App() {
           >
             🔥 FireBoard
           </button>
+          <button 
+            className={`tab-btn ${activeTab === 'settings' ? 'active' : ''}`}
+            onClick={() => setActiveTab('settings')}
+          >
+            ⚙️ Settings
+          </button>
         </nav>
         
         <div className="tab-content">
@@ -45,6 +52,7 @@ function App() {
           {activeTab === 'shopping' && <ShoppingListView />}
           {activeTab === 'cost' && <CostAnalysisView />}
           {activeTab === 'fireboard' && <FireBoardView />}
+          {activeTab === 'settings' && <SettingsView />}
         </div>
       </main>
     </div>
