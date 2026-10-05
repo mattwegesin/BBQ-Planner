@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useStore } from '../store';
 import { v4 as uuidv4 } from 'uuid';
-import { Ingredient } from '../types';
+import type { Ingredient } from '../types';
 
 export default function SettingsView() {
   const { settings, addMeat, updateMeat, deleteMeat, addMiscItem, updateMiscItem, deleteMiscItem } = useStore();

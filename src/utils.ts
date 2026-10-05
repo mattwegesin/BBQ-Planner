@@ -1,4 +1,4 @@
-import { Ingredient } from './types';
+import type { Ingredient } from './types';
 
 export const displayIngredientAmount = (ingredient: Ingredient, meatAmount: number): string => {
     if (ingredient.isCalculated) {

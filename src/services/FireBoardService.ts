@@ -1,4 +1,4 @@
-import { FireBoardDevice, FireBoardTemp } from '../types';
+import type { FireBoardDevice, FireBoardTemp } from '../types';
 
 const BASE_URL = "https://fireboard.io/api";
 

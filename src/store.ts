@@ -1,6 +1,6 @@
 import { create } from 'zustand';
 import { v4 as uuidv4 } from 'uuid';
-import { BBQSettings, BBQSession, PlannedMeat, MeatConfig, FireBoardDevice, FireBoardSession, FireBoardChartPoint } from './types';
+import type { BBQSettings, BBQSession, PlannedMeat, MeatConfig, FireBoardDevice, FireBoardSession, FireBoardChartPoint, MiscItem } from './types';
 
 // Default settings ported from Swift
 const DEFAULT_SETTINGS: BBQSettings = {
