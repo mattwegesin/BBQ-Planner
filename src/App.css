@@ -1,12 +1,13 @@
 :root {
-  --primary: #dc2626; /* Crimson Red */
-  --bg-color: #f3f4f6; /* Cool gray background */
-  --sidebar-bg: #111827; /* Dark slate sidebar */
+  --primary: #ef4444; /* Brighter red for dark mode */
+  --bg-color: #111827; /* Dark slate */
+  --sidebar-bg: #030712; /* Very dark slate for sidebar */
   --sidebar-text: #f9fafb;
-  --text-main: #1f2937;
-  --text-muted: #6b7280;
-  --border: #e5e7eb;
+  --text-main: #f9fafb;
+  --text-muted: #9ca3af;
+  --border: #374151;
   --sidebar-border: #1f2937;
+  --card-bg: #1f2937; /* Slightly lighter slate for cards */
 }
 
 body {
@@ -78,10 +79,10 @@ body {
 /* Tab Nav */
 .tab-nav {
   display: flex;
-  background-color: #ffffff;
+  background-color: var(--card-bg);
   border-bottom: 1px solid var(--border);
   padding: 0 20px;
-  box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+  box-shadow: 0 1px 2px rgba(0,0,0,0.2);
   z-index: 10;
 }
 

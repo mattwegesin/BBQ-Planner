@@ -43,7 +43,7 @@ export default function SettingsView() {
     <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
       
       {/* Meats Section (Master/Detail) */}
-      <div style={{ background: 'white', borderRadius: '8px', display: 'flex', overflow: 'hidden', minHeight: '500px', boxShadow: '0 1px 3px rgba(0,0,0,0.1)' }}>
+      <div style={{ background: 'var(--card-bg)', borderRadius: '8px', display: 'flex', overflow: 'hidden', minHeight: '500px', boxShadow: '0 1px 3px rgba(0,0,0,0.1)' }}>
           {/* Master List */}
           <div style={{ width: '250px', borderRight: '1px solid var(--border)', display: 'flex', flexDirection: 'column' }}>
               <div style={{ padding: '15px', borderBottom: '1px solid var(--border)', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
@@ -186,7 +186,7 @@ export default function SettingsView() {
       </div>
 
       {/* Misc Items Section */}
-      <div style={{ background: 'white', padding: '20px', borderRadius: '8px', boxShadow: '0 1px 3px rgba(0,0,0,0.1)' }}>
+      <div style={{ background: 'var(--card-bg)', padding: '20px', borderRadius: '8px', boxShadow: '0 1px 3px rgba(0,0,0,0.1)' }}>
           <h3 style={{ marginTop: 0 }}>Miscellaneous Items</h3>
           <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
               {settings.miscItems.map(item => (

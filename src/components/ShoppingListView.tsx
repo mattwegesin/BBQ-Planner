@@ -14,7 +14,7 @@ export default function ShoppingListView() {
       <h2>Shopping List</h2>
       
       {activeConfigs.length > 0 && (
-        <div style={{ marginBottom: '20px', background: 'white', padding: '15px', borderRadius: '8px' }}>
+        <div style={{ marginBottom: '20px', background: 'var(--card-bg)', padding: '15px', borderRadius: '8px' }}>
           <h3>Meats</h3>
           <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
             {activeConfigs.map(config => (
@@ -30,7 +30,7 @@ export default function ShoppingListView() {
       )}
 
       {configsWithIngredients.length > 0 && (
-        <div style={{ marginBottom: '20px', background: 'white', padding: '15px', borderRadius: '8px' }}>
+        <div style={{ marginBottom: '20px', background: 'var(--card-bg)', padding: '15px', borderRadius: '8px' }}>
           <h3>Associated Ingredients</h3>
           {configsWithIngredients.map(config => {
             const meatAmount = calculateRawAmountValue(config, guestCount);
@@ -54,7 +54,7 @@ export default function ShoppingListView() {
       )}
 
       {settings.miscItems.length > 0 && (
-        <div style={{ background: 'white', padding: '15px', borderRadius: '8px' }}>
+        <div style={{ background: 'var(--card-bg)', padding: '15px', borderRadius: '8px' }}>
           <h3>Miscellaneous Items</h3>
           <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
             {settings.miscItems.map(item => (

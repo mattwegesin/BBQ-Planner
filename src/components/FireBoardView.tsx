@@ -69,7 +69,7 @@ export default function FireBoardView() {
 
   if (!fireBoardToken) {
       return (
-          <div style={{ maxWidth: '400px', margin: '0 auto', background: 'white', padding: '30px', borderRadius: '8px', boxShadow: '0 1px 3px rgba(0,0,0,0.1)' }}>
+          <div style={{ maxWidth: '400px', margin: '0 auto', background: 'var(--card-bg)', padding: '30px', borderRadius: '8px', boxShadow: '0 1px 3px rgba(0,0,0,0.1)' }}>
               <h2 style={{ marginTop: 0, textAlign: 'center' }}>FireBoard Login</h2>
               <p style={{ color: 'var(--text-muted)', textAlign: 'center', marginBottom: '20px' }}>
                   Authenticate to sync your live temperatures and historical session charts.
@@ -122,12 +122,12 @@ export default function FireBoardView() {
     <div>
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '20px' }}>
           <h2>FireBoard Dashboard</h2>
-          <button onClick={handleLogout} style={{ padding: '8px 15px', background: 'white', border: '1px solid var(--border)', borderRadius: '4px', cursor: 'pointer' }}>
+          <button onClick={handleLogout} style={{ padding: '8px 15px', background: 'var(--card-bg)', border: '1px solid var(--border)', borderRadius: '4px', cursor: 'pointer' }}>
               Logout
           </button>
       </div>
 
-      <div style={{ background: 'white', padding: '20px', borderRadius: '8px', boxShadow: '0 1px 3px rgba(0,0,0,0.1)', marginBottom: '20px' }}>
+      <div style={{ background: 'var(--card-bg)', padding: '20px', borderRadius: '8px', boxShadow: '0 1px 3px rgba(0,0,0,0.1)', marginBottom: '20px' }}>
           <label style={{ fontWeight: 'bold', marginRight: '10px' }}>Selected Device:</label>
           <select 
               value={selectedDeviceUUID || ''} 
@@ -150,7 +150,7 @@ export default function FireBoardView() {
                       const temp = latestTemps[channel.channel] ?? channel.last_temp;
                       
                       return (
-                          <div key={channel.channel} style={{ background: 'white', padding: '20px', borderRadius: '8px', textAlign: 'center', boxShadow: '0 1px 3px rgba(0,0,0,0.1)', borderTop: '4px solid var(--primary)' }}>
+                          <div key={channel.channel} style={{ background: 'var(--card-bg)', padding: '20px', borderRadius: '8px', textAlign: 'center', boxShadow: '0 1px 3px rgba(0,0,0,0.1)', borderTop: '4px solid var(--primary)' }}>
                               <div style={{ color: 'var(--text-muted)', marginBottom: '5px' }}>
                                   CH {channel.channel} - {channel.label || 'Probe'}
                               </div>

@@ -36,7 +36,7 @@ export default function CostAnalysisView() {
       <h2>Financial Analysis</h2>
       
       {meatRows.length > 0 && (
-          <div style={{ marginBottom: '20px', background: 'white', padding: '15px', borderRadius: '8px', boxShadow: '0 1px 3px rgba(0,0,0,0.1)' }}>
+          <div style={{ marginBottom: '20px', background: 'var(--card-bg)', padding: '15px', borderRadius: '8px', boxShadow: '0 1px 3px rgba(0,0,0,0.1)' }}>
              <h3 style={{ marginTop: 0 }}>Menu Items (Proteins & Sides)</h3>
              {meatRows.map(r => (
                  <div key={r.name} style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '8px' }}>
@@ -53,7 +53,7 @@ export default function CostAnalysisView() {
       )}
 
       {ingredientRows.length > 0 && (
-          <div style={{ marginBottom: '20px', background: 'white', padding: '15px', borderRadius: '8px', boxShadow: '0 1px 3px rgba(0,0,0,0.1)' }}>
+          <div style={{ marginBottom: '20px', background: 'var(--card-bg)', padding: '15px', borderRadius: '8px', boxShadow: '0 1px 3px rgba(0,0,0,0.1)' }}>
              <h3 style={{ marginTop: 0 }}>Ingredients</h3>
              {ingredientRows.map((r, i) => (
                  <div key={i} style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '8px' }}>
@@ -70,7 +70,7 @@ export default function CostAnalysisView() {
       )}
 
       {settings.miscItems.length > 0 && (
-          <div style={{ marginBottom: '20px', background: 'white', padding: '15px', borderRadius: '8px', boxShadow: '0 1px 3px rgba(0,0,0,0.1)' }}>
+          <div style={{ marginBottom: '20px', background: 'var(--card-bg)', padding: '15px', borderRadius: '8px', boxShadow: '0 1px 3px rgba(0,0,0,0.1)' }}>
              <h3 style={{ marginTop: 0 }}>Miscellaneous Items</h3>
              {settings.miscItems.map(m => (
                  <div key={m.id} style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '8px' }}>
@@ -86,7 +86,7 @@ export default function CostAnalysisView() {
           </div>
       )}
 
-      <div style={{ background: 'white', padding: '15px', borderRadius: '8px', boxShadow: '0 1px 3px rgba(0,0,0,0.1)' }}>
+      <div style={{ background: 'var(--card-bg)', padding: '15px', borderRadius: '8px', boxShadow: '0 1px 3px rgba(0,0,0,0.1)' }}>
          <h3 style={{ marginTop: 0 }}>Expected Cost Summary</h3>
          <div style={{ display: 'flex', justifyContent: 'space-between', fontWeight: 'bold', fontSize: '1.2rem', marginBottom: '8px' }}>
              <span>Total Expected</span>

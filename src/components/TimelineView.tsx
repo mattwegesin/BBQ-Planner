@@ -69,7 +69,7 @@ export default function TimelineView() {
       
       <div style={{ display: 'flex', flexDirection: 'column', gap: '15px' }}>
         {steps.map(step => (
-          <div key={step.id} style={{ padding: '15px', background: 'white', borderRadius: '8px', borderLeft: '4px solid var(--primary)', boxShadow: '0 1px 3px rgba(0,0,0,0.1)' }}>
+          <div key={step.id} style={{ padding: '15px', background: 'var(--card-bg)', borderRadius: '8px', borderLeft: '4px solid var(--primary)', boxShadow: '0 1px 3px rgba(0,0,0,0.1)' }}>
             <div style={{ fontWeight: 'bold', fontSize: '1.1rem', marginBottom: '5px' }}>
               {step.time.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })} - {step.title}
             </div>
