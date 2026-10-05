@@ -63,6 +63,7 @@ interface AppState {
     activeSessionId?: string;
 
     // Fireboard Data
+    fireBoardToken?: string;
     fireBoardDevices: FireBoardDevice[];
     latestTemps: Record<number, number>;
     selectedDeviceUUID?: string;
@@ -78,6 +79,7 @@ interface AppState {
     deleteSession: (id: string) => void;
     loadSession: (session: BBQSession) => void;
     recalculatePlan: () => void;
+    
     // Settings Actions
     updateMeat: (id: string, updates: Partial<MeatConfig>) => void;
     addMeat: (category: 'Protein' | 'Side') => void;
@@ -85,6 +87,12 @@ interface AppState {
     updateMiscItem: (id: string, updates: Partial<MiscItem>) => void;
     addMiscItem: () => void;
     deleteMiscItem: (id: string) => void;
+
+    // FireBoard Actions
+    setFireBoardToken: (token?: string) => void;
+    setFireBoardDevices: (devices: FireBoardDevice[]) => void;
+    setSelectedDeviceUUID: (uuid?: string) => void;
+    updateTemps: (temps: Record<number, number>) => void;
 }
 
 export const useStore = create<AppState>((set, get) => ({
@@ -95,6 +103,7 @@ export const useStore = create<AppState>((set, get) => ({
     plannedMeats: [],
     history: [],
     
+    fireBoardToken: localStorage.getItem('FireBoardToken') || undefined,
     fireBoardDevices: [],
     latestTemps: {},
     availableFireBoardSessions: [],
@@ -230,6 +239,27 @@ export const useStore = create<AppState>((set, get) => ({
         const { settings } = get();
         const updatedMisc = settings.miscItems.filter(m => m.id !== id);
         set({ settings: { ...settings, miscItems: updatedMisc } });
+    },
+
+    setFireBoardToken: (token) => {
+        if (token) {
+            localStorage.setItem('FireBoardToken', token);
+        } else {
+            localStorage.removeItem('FireBoardToken');
+        }
+        set({ fireBoardToken: token });
+    },
+    
+    setFireBoardDevices: (devices) => {
+        set({ fireBoardDevices: devices });
+    },
+
+    setSelectedDeviceUUID: (uuid) => {
+        set({ selectedDeviceUUID: uuid });
+    },
+
+    updateTemps: (temps) => {
+        set({ latestTemps: { ...get().latestTemps, ...temps } });
     }
 }));
 
