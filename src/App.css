@@ -1,17 +1,20 @@
 :root {
-  --primary: #d32f2f;
-  --bg-color: #f4f4f5;
-  --sidebar-bg: #ffffff;
-  --text-main: #333333;
-  --text-muted: #666666;
-  --border: #e5e5e5;
+  --primary: #dc2626; /* Crimson Red */
+  --bg-color: #f3f4f6; /* Cool gray background */
+  --sidebar-bg: #111827; /* Dark slate sidebar */
+  --sidebar-text: #f9fafb;
+  --text-main: #1f2937;
+  --text-muted: #6b7280;
+  --border: #e5e7eb;
+  --sidebar-border: #1f2937;
 }
 
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  font-family: system-ui, -apple-system, sans-serif;
   background-color: var(--bg-color);
   color: var(--text-main);
+  -webkit-font-smoothing: antialiased;
 }
 
 .app-container {
@@ -24,17 +27,44 @@ body {
 .sidebar {
   width: 300px;
   background-color: var(--sidebar-bg);
-  border-right: 1px solid var(--border);
+  color: var(--sidebar-text);
+  border-right: 1px solid var(--sidebar-border);
   display: flex;
   flex-direction: column;
-  padding: 20px;
+  padding: 24px;
   overflow-y: auto;
 }
 
 .sidebar h2 {
   margin-top: 0;
-  margin-bottom: 20px;
+  margin-bottom: 24px;
   font-size: 1.5rem;
+  font-weight: 700;
+  color: #f87171; /* Accent red in sidebar */
+  letter-spacing: -0.025em;
+}
+
+/* Sidebar Inputs */
+.sidebar input[type="number"], .sidebar input[type="text"] {
+  background: #374151;
+  border: 1px solid #4b5563;
+  color: white;
+  border-radius: 6px;
+  padding: 10px !important;
+  font-size: 1rem;
+  transition: border-color 0.2s;
+}
+
+.sidebar input[type="number"]:focus, .sidebar input[type="text"]:focus {
+  outline: none;
+  border-color: #f87171;
+}
+
+.sidebar input[type="checkbox"] {
+  accent-color: #ef4444;
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
 }
 
 /* Main Content */
@@ -48,20 +78,23 @@ body {
 /* Tab Nav */
 .tab-nav {
   display: flex;
-  background-color: var(--sidebar-bg);
+  background-color: #ffffff;
   border-bottom: 1px solid var(--border);
   padding: 0 20px;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+  z-index: 10;
 }
 
 .tab-btn {
   background: none;
   border: none;
-  padding: 15px 20px;
-  font-size: 1rem;
+  padding: 20px 20px;
+  font-size: 0.95rem;
+  font-weight: 500;
   cursor: pointer;
   color: var(--text-muted);
   border-bottom: 3px solid transparent;
-  transition: all 0.2s;
+  transition: all 0.2s ease;
 }
 
 .tab-btn:hover {
@@ -71,21 +104,43 @@ body {
 .tab-btn.active {
   color: var(--primary);
   border-bottom-color: var(--primary);
-  font-weight: 600;
 }
 
 /* Tab Content */
 .tab-content {
   flex: 1;
-  padding: 20px;
+  padding: 30px;
   overflow-y: auto;
 }
 
-/* Helper utility for placeholder views */
-.placeholder-view {
-  background: white;
-  padding: 40px;
-  border-radius: 8px;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
-  text-align: center;
+/* General UI Polish for Inline Styles */
+h2 {
+  margin-top: 0;
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  color: #111827;
+}
+
+h3 {
+  font-weight: 600;
+  color: #374151;
+}
+
+input, select {
+  font-family: inherit;
+}
+
+input:focus, select:focus {
+  outline: 2px solid #fca5a5;
+  border-color: var(--primary) !important;
+}
+
+/* Buttons */
+button {
+  font-family: inherit;
+  border-radius: 6px;
+  transition: all 0.2s;
+}
+button:hover {
+  opacity: 0.9;
 }
